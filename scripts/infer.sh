@@ -1,0 +1,1 @@
+python deploy/inference_python/infer.py --model-dir infer_output  --data-path datasets/tiny_sample.npy

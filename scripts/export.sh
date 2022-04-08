@@ -1,0 +1,1 @@
+python export_model.py --model-path output/model_best --save-inference-dir infer_output

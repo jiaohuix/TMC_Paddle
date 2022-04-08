@@ -1,0 +1,30 @@
+===========================train_params===========================
+model_name:tmc
+python:python
+gpu_list:0
+use-gpu:True|True
+--epochs:lite_train_lite_infer=5|lite_train_whole_infer=5|whole_train_whole_infer=500
+--output-dir:./output/
+--batch-size:lite_train_lite_infer=1|whole_train_whole_infer=200
+null:null
+train_model_name:output/model_best
+--data-path:./datasets/handwritten_6views
+##
+trainer:norm_train
+norm_train:train.py
+##
+===========================eval_params===========================
+eval:predict.py --model-path output/model_best
+##
+===========================infer_params===========================
+null:null
+null:null
+norm_export:export_model.py --model-path output/model_best --save-inference-dir ./infer_output
+##
+null:null
+infer_export:export_model.py --model=tmc
+##
+inference:deploy/inference_python/infer.py --model-dir ./infer_output --data-path ./test_tipc/lite_data/tiny_sample.npy
+--use-gpu:True|False
+--batch-size:1
+--benchmark:True
