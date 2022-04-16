@@ -3,20 +3,20 @@
 ## 目录
 
 - [1. 简介](#1)
-- [2. 数据集和复现精度]()
-- [3. 准备数据与环境]()
-    - [3.1 准备环境]()
-    - [3.2 准备数据]()
-    - [3.3 准备模型]()
-- [4. 开始使用]()
-    - [4.1 模型训练]()
-    - [4.2 模型评估]()
-    - [4.3 模型预测]()
-- [5. 模型推理部署]()
-    - [5.1 基于Inference的推理]()
-- [6. 自动化测试脚本]()
-- [7. LICENSE]()
-- [8. 参考链接与文献]()
+- [2. 数据集和复现精度](#2)
+- [3. 准备数据与环境](#3)
+    - [3.1 准备环境](#3.1)
+    - [3.2 准备数据](#3.2)
+    - [3.3 准备模型](#3.3)
+- [4. 开始使用](#4)
+    - [4.1 模型训练](#4.1)
+    - [4.2 模型评估](#4.2)
+    - [4.3 模型预测](#4.3)
+- [5. 模型推理部署](#5)
+    - [5.1 基于Inference的推理](#5.1)
+- [6. 自动化测试脚本](#6)
+- [7. LICENSE](#7)
+- [8. 参考链接与文献](#8)
 
 <a id="1"></a>
 
@@ -42,6 +42,7 @@
 
 **aistudio体验教程:** [地址](https://aistudio.baidu.com/aistudio/projectdetail/3763157)
 
+<a id="2"></a>
 
 ## 2. 数据集和复现精度
 
@@ -67,8 +68,11 @@
 
 将model.pdparams放到output/model_best下就能使用默认的命令加载了。
 
+<a id="3"></a>
+
 ## 3. 准备数据与环境
 
+<a id="3.1"></a>
 
 ### 3.1 准备环境
 
@@ -81,6 +85,8 @@
 
 `pip install -r requirements.txt`
 
+<a id="3.2"></a>
+
 ### 3.2 准备数据
 
 由于数据量较小，已经放在repo里面了，路径如下所示：
@@ -90,6 +96,7 @@
 # 少量数据（测试1条）： test_tipc/lite_data/tiny_sample.npy
 ```
 
+<a id="3.3"></a>
 
 ### 3.3 准备模型
 
@@ -97,7 +104,11 @@
 预训练模型默认保存到output/model_best下。
 
 
+<a id="4"></a>
+
 ## 4. 开始使用
+
+<a id="4.1"></a>
 
 ### 4.1 模型训练
 
@@ -121,6 +132,8 @@ bash scripts/train.py
 2022-04-08 11:41:10,983 | TMC: 
 ```
 
+<a id="4.2"></a>
+
 ### 4.2 模型评估
 
 评估全量测试集：
@@ -128,6 +141,8 @@ bash scripts/train.py
 ```shell
 python train.py --eval --model-path output/model_best/
 ```
+
+<a id="4.3"></a>
 
 ### 4.3 模型预测
 
@@ -149,15 +164,19 @@ scores:[1.0000000e+00 6.9172846e-18 7.7700764e-18 7.1218232e-18 7.6900467e-18
 predicted_id: 0, prob: 1.0
 ```
 
-
+<a id="5"></a>
 
 ## 5. 模型推理部署
+
+<a id="5.1"></a>
 
 ### 5.1模型导出
 
 ```shell
 bash scripts/export.sh
 ```
+
+<a id="5.2"></a>
 
 ### 5.2 推理
 
@@ -173,6 +192,8 @@ scores:[1.0000000e+00 6.9172722e-18 7.7700739e-18 7.1218299e-18 7.6900541e-18
 label_id: 0, prob: 1.0
 ```
 
+<a id="6"></a>
+
 ## 6. 自动化测试脚本
 
 tipc命令如下所示（具体文档请参照[test_train_inference_python.md](./test_tipc/docs/test_train_inference_python.md)）：
@@ -183,10 +204,13 @@ bash scripts/tipc.sh
 bash test_tipc/test_train_inference_python.sh test_tipc/configs/TMC/train_infer_python.txt  lite_train_whole_infer
 ```
 
+<a id="7"></a>
 
 ## 7. LICENSE
 
 本项目的发布受[Apache 2.0 license](./LICENSE)许可认证。
+
+<a id="8"></a>
 
 ## 8. 参考链接与文献
 
