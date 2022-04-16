@@ -6,14 +6,10 @@ import numpy as np
 import argparse
 from reprod_log import ReprodLogger
 from paddle.io import DataLoader
+__dir__ = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.abspath(os.path.join(__dir__, '../')))
 from model import TMC
 from data import Multi_view_data
-
-# __dir__ = os.path.dirname(os.path.abspath(__file__))
-# sys.path.append(os.path.abspath(os.path.join(__dir__, '/../')))
-# parentddir = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir))
-# sys.path.append(parentddir)
-# sys.path.append('../')
 
 def get_args(add_help=True):
     parser = argparse.ArgumentParser(

@@ -1,9 +1,12 @@
 import os
+import sys
 import time
 import argparse
 import paddle
 import paddle.optimizer as optim
 from paddle.io import DataLoader
+__dir__ = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.abspath(os.path.join(__dir__, '../')))
 from model import TMC
 from data import Multi_view_data
 from utils import AverageMeter,set_seed,save_model,get_logger

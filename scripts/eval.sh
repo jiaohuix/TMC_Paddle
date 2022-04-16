@@ -1,1 +1,1 @@
-python predict.py --model-path output/model_best/
+python tools/eval.py --model-path output/model_best/

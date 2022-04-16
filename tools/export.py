@@ -15,10 +15,11 @@ import sys
 import os
 import paddle
 import argparse
+__dir__ = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.abspath(os.path.join(__dir__, '../')))
 from model import TMC
 
-# __dir__ = os.path.dirname(os.path.abspath(__file__))
-# sys.path.append(os.path.abspath(os.path.join(__dir__, '../')))
+
 
 def get_args(add_help=True):
     """get_args

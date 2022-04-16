@@ -11,18 +11,18 @@ train_model_name:output/model_best
 --data-path:./datasets/handwritten_6views
 ##
 trainer:norm_train
-norm_train:train.py
+norm_train:tools/train.py
 ##
 ===========================eval_params===========================
-eval:predict.py --model-path output/model_best
+eval:tools/eval.py --model-path output/model_best
 ##
 ===========================infer_params===========================
 null:null
 null:null
-norm_export:export_model.py --model-path output/model_best --save-inference-dir ./infer_output
+norm_export:tools/export.py --model-path output/model_best --save-inference-dir ./infer_output
 ##
 null:null
-infer_export:export_model.py --model=tmc
+infer_export:tools/export.py --model=tmc
 ##
 inference:deploy/inference_python/infer.py --model-dir ./infer_output --data-path ./test_tipc/lite_data/tiny_sample.npy
 --use-gpu:True|False
